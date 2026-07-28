@@ -1,0 +1,12 @@
+import java.util.*;
+public class hello {
+    public static void main(String[]args){
+      // task 3 : temperature calculator 
+      Scanner sc=new Scanner (System.in);
+      System.out.print("enter temperature in C to get in F : ");
+      int a=sc.nextInt();
+      System.out.println("the converted temp is  "+(a*9/5+32));
+
+    }
+
+}
