@@ -1,0 +1,19 @@
+import java.util.*;
+public class hello {
+    public static void main(String[]args){
+      // task 2 : airthmatic calculator 
+      Scanner sc=new Scanner (System.in);
+      System.out.print("enter first number : ");
+      int a=sc.nextInt(); // one integer
+      System.out.print("enter second number : ");
+      int b=sc.nextInt(); // 2nd integer
+      // operations 
+      System.out.println("the addition of the numbers are "+(a+b));
+      System.out.println("the substraction of the numbers are "+(a-b));
+      System.out.println("the multiplication of the numbers are "+(a*b));
+      System.out.println("the division of the numbers are "+(a/b));
+
+
+    }
+
+}
