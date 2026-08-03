@@ -1,0 +1,18 @@
+import java.util.*;
+public class hello {
+    public static void main(String[]args){
+      // task 5 : digit extraction 
+      Scanner sc=new Scanner (System.in);
+      System.out.print("enter a 3 digit number : ");
+      int a=sc.nextInt();
+      // expressing the digits on hun , ten ,ones places 
+      int a0=a%10; // ones places 
+      int a2=a/100; // hundred places
+      int a1=a/10; // tens place
+      System.out.println("the nuber on the 100 th place : "+a2);
+      System.out.println("the nuber on the 10 th place : "+(a1%10));
+      System.out.println("the nuber on the 1 th place : "+a0);
+
+    }
+
+}
