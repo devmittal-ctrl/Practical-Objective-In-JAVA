@@ -1,0 +1,17 @@
+import java.util.*;
+public class hello {
+    public static void main(String[]args){
+      // task 4 : simple intrest  calculator 
+      Scanner sc=new Scanner (System.in);
+      System.out.print("enter principal amount : ");
+      double a=sc.nextDouble();
+      System.out.print("enter rate amount : ");
+      double ab=sc.nextDouble();
+      System.out.print("enter time : ");
+      double abc=sc.nextDouble();
+      double ae=(double)(a*ab*abc)/100;
+      System.out.println("the final amont after interset is : "+(ae+a));
+
+    }
+
+}
