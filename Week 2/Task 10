@@ -1,0 +1,65 @@
+import java.util.*;
+public class NumberAnalyzer {
+    public static void main(String args[]) {
+    // yask 10 modular number analyzer
+    Scanner sc=new Scanner(System.in);
+    // sc.close();
+    int number=readNumber(sc);
+    boolean even=isEven(number);
+    boolean posi=isPositive(number);
+    int abs=absoluteValue(number);
+    int digicount=countDigits(abs);
+    int digisum=sumDigits(abs);
+    printReport(number,even,posi,digicount,digisum);
+    sc.close();
+
+
+}
+static int readNumber(Scanner input){
+    System.out.print("type the number here : ");
+    return input.nextInt();
+}
+static boolean isEven(int number){
+    if(number%2==0)
+        return true;
+    else
+        return false;
+}
+static boolean isPositive(int number){
+    if(number>=0)
+        return true;
+    else
+        return false;
+}
+static int absoluteValue(int number){
+    if(number>=0)
+        return number;
+    else 
+        return Math.abs(number);
+}
+static int countDigits(int number){
+    int count=0;
+    while(number!=0){
+        number/=10;
+        count++;
+    }
+    return count;
+}
+static int sumDigits(int number){
+    int sum=0;
+    while(number!=0){
+        sum=sum+(number%10);
+        number/=10;
+    }
+    return sum;
+}
+static void printReport(int number,boolean even,boolean positive,int digitCount,int digitSum){
+    System.out.println("the report of the number is : ");
+    System.out.println("the number is : "+number);
+    System.out.println("the number is : "+even);
+    System.out.println("the number is : "+positive);
+   // System.out.println(absoluteValue("the number is : "+digitCount));
+    System.out.println("the number is : "+digitCount);
+    System.out.println("the number is : "+digitSum);
+}
+}
