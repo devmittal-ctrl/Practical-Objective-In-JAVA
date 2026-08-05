@@ -1,6 +1,6 @@
 // task 2 : leap year 
 import java.util.*;
-public class class_w {
+public class LeapYear {
     public static void main(String args[]){
         Scanner sc=new Scanner(System.in);
         System.out.println("the response of the number is : ");
