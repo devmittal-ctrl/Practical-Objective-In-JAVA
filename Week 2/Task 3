@@ -1,6 +1,6 @@
 import java.util.*;
 public class MenuCalculator {
-    public static void main(String args[]) {
+    public void use() {
         Scanner sc = new Scanner(System.in);
         int num1 = 0;
         int num2 = 0;
