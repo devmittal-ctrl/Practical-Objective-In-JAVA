@@ -1,6 +1,6 @@
 import java.util.*;
 public class NumberReversal{
-    public static void main(String args[]) {
+    public void use() {
         // number reversal 
     Scanner sc=new Scanner(System.in);
     System.out.print("NUMBER : ");
