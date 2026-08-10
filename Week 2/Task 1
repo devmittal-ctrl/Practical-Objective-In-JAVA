@@ -1,6 +1,6 @@
 import java.util.*;
 public class GradingSystem {
-    public static void main(String args[]){
+    public void use(){
         Scanner sc=new Scanner(System.in);
         System.out.println("the response of the number is : ");
         int a= sc.nextInt();
