@@ -1,6 +1,6 @@
 import java.util.*;
 public class jd {
-    public static void main(String args[]) {
+    public void use() {
         // task 9 == > SENTINEL-CONTROLLED MARKS PROCESSOR
         int a;
         int sum = 0, total_no = 0, hig = 0, pa = 0, fa = 0;
