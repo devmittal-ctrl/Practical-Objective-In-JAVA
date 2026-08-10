@@ -1,6 +1,6 @@
 import java.util.*;
 public class NumberAnalyzer {
-    public static void main(String args[]) {
+    public void use() {
     // yask 10 modular number analyzer
     Scanner sc=new Scanner(System.in);
     // sc.close();
