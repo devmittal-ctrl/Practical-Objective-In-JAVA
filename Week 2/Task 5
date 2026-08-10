@@ -1,6 +1,6 @@
 import java.util.*;
 public class GreatestCommonDivisor {
-    public static void main(String args[]) {
+    public void use() {
     Scanner sc=new Scanner(System.in);
     System.out.print("the first numer : ");
     int num1=sc.nextInt();
