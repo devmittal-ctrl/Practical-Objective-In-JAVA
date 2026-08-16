@@ -39,29 +39,6 @@ Java-Work/
 
 The exact contents of each week may vary depending on the tasks assigned by the faculty/mentor.
 
-## Topics Covered
-
-The repository may include programs involving:
-
-* Java syntax and program structure
-* Variables and data types
-* Operators
-* Input and output
-* Conditional statements
-* `if`, `else if`, and `else`
-* `switch`
-* Loops
-* `for`, `while`, and `do-while`
-* Arrays
-* Strings
-* Methods and functions
-* Basic problem solving
-* Pattern programming
-* Number-based problems
-* Searching and sorting
-* Object-oriented programming
-* Other Java concepts introduced during the course
-
 > The weekly topics will be updated as new tasks are assigned.
 
 
