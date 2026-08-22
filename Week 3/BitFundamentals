@@ -1,0 +1,49 @@
+
+public class BitFundamentals {
+
+    static boolean isOdd(int number) {
+        return (number & 1) != 0;
+    }
+
+    static int countSetBitsShift(int number) {
+        int count = 0;
+
+        for (int i = 0; i < 32; i++) {
+            count += number & 1;
+            number >>>= 1;
+        }
+
+        return count;
+    }
+
+    static int countSetBitsFast(int number) {
+        int count = 0;
+
+        while (number != 0) {
+            number &= number - 1;
+            count++;
+        }
+
+        return count;
+    }
+
+    static boolean isPowerOfTwo(int number) {
+        return number > 0 && (number & (number - 1)) == 0;
+    }
+
+    public static void main(String[] args) {
+        int[] testValues = {
+            -1, 0, 1, 2, 3, 8, 12, Integer.MIN_VALUE
+        };
+
+        for (int number : testValues) {
+            System.out.println("Number: " + number);
+            System.out.println("Is Odd: " + isOdd(number));
+            System.out.println("Set Bits Shift: " + countSetBitsShift(number));
+            System.out.println("Set Bits Fast: " + countSetBitsFast(number));
+            System.out.println("Power of Two: " + isPowerOfTwo(number));
+            System.out.println();
+        }
+    }
+}
+```
