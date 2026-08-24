@@ -1,0 +1,49 @@
+public class zolo_lab{
+    public static use(){
+        // task 3 : rectangle model
+        Rectangle r1=new Rectangle(4,5);
+        r1.getArea(r1);
+        r1.isSquare(r1);
+    } 
+}
+class Rectangle{
+    private double width;
+    private double height;
+    Rectangle(){
+        System.out.println("no argument constructor pased");
+        width=1;
+        height=1;
+        System.out.println("height of rectangle : "+height+"width of rectangle : "+width);
+    }
+    Rectangle(int d){
+        System.out.println("one argument constructor is passed ");
+        height=d;
+        width=d;
+        System.out.println("height of rectangle : "+height+" width of rectangle : "+width);
+    }
+    Rectangle(int t,int r){
+        System.out.println("two argument constructor is passed");
+        width=r;
+        height=t;
+        System.out.println("heigth of the rectangle is : "+height+" width of rectangle is : "+width);
+
+    }
+    void getArea(Rectangle r){
+        double area=height*width;
+        System.out.println("area of the rectangle is : "+area);
+    }
+    void getPreimeter(Rectangle r){
+        double perimeter=2*(height+width);
+        System.out.println("perimeter of the rectangle is : "+perimeter);
+    }
+    boolean isSquare(Rectangle r){
+        if(width==height){
+            System.out.println("yes its a square");
+            return true;
+        }
+        else {
+        System.out.println("no its not a square");
+        return false;
+            }
+    }
+}
