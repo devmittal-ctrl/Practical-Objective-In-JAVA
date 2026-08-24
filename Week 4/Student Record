@@ -42,4 +42,7 @@ class StudentRecord{
         else return "Fail";
 
     }
+@ Override
+String toString(){
+return "StudentRecord[marks are, + marks]";
 }
