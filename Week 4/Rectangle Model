@@ -1,40 +1,47 @@
 public class zolo_lab{
-    public static use(){
+    public void use(){
         // task 3 : rectangle model
-        Rectangle r1=new Rectangle(4,5);
-        r1.getArea(r1);
+        System.out.println("pls enter the positive dimensions");
+        Rectangle r1=new Rectangle(4);
+        r1.getArea();
+        r1.getPreimeter();
         r1.isSquare(r1);
+        String h=r1.toString();
+        System.out.println(h);
     } 
 }
 class Rectangle{
     private double width;
     private double height;
     Rectangle(){
+        this(1,1);
         System.out.println("no argument constructor pased");
-        width=1;
-        height=1;
         System.out.println("height of rectangle : "+height+"width of rectangle : "+width);
     }
-    Rectangle(int d){
+    Rectangle(double dime){
+        height=dime;
+        width=dime;
+        if(dime>=0){
         System.out.println("one argument constructor is passed ");
-        height=d;
-        width=d;
         System.out.println("height of rectangle : "+height+" width of rectangle : "+width);
+        }
+        else System.err.println("pls enter a valid dimension");
     }
-    Rectangle(int t,int r){
+    Rectangle(double t,double r){
         System.out.println("two argument constructor is passed");
-        width=r;
+        if(t>=0&&r>=0){
         height=t;
+        width=r;
         System.out.println("heigth of the rectangle is : "+height+" width of rectangle is : "+width);
+        }
+        else System.err.println("pls enter a valid dimension");
 
     }
-    void getArea(Rectangle r){
-        double area=height*width;
-        System.out.println("area of the rectangle is : "+area);
+    double getArea(){
+        return width*height;
     }
-    void getPreimeter(Rectangle r){
-        double perimeter=2*(height+width);
-        System.out.println("perimeter of the rectangle is : "+perimeter);
+    double getPreimeter(){
+        return 2*(height+width);
     }
     boolean isSquare(Rectangle r){
         if(width==height){
@@ -45,5 +52,8 @@ class Rectangle{
         System.out.println("no its not a square");
         return false;
             }
+    }
+    String toString(Rectangle r){
+        return "Rectangle{width= "+width+", heigth= "+height+"}";
     }
 }
