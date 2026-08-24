@@ -1,0 +1,45 @@
+public class zolo_lab_2 {
+    public static use(){
+        // task 1 : student record 
+        StudentRecord s1=new StudentRecord(12,"koi nahi","25csu000");
+        System.out.println(s1.getClassification(s1));
+
+    }
+}
+class StudentRecord{
+    private String name;
+    private String studentId;
+    private int marks;
+    StudentRecord(){
+        System.err.println("name and student id must not be equal to null so,");
+        name="abc";
+        studentId="25csuxxx";
+        System.out.println("name : "+name+" | student id : "+studentId);
+    }
+    StudentRecord(int marks,String name,String studentId){
+        this.marks=marks;
+        this.name=name;
+        this.studentId=studentId;
+        System.out.println("marks: "+marks+" | name : "+name+" | student id is : "+studentId);
+    }
+    void getname(String name){
+        this.name=name;
+    }
+    void getmarks(int marks){
+        this.marks=marks;
+    }
+    void getstudentID(String studentID){
+        this.studentId=studentID;
+    }
+    boolean ispassed(StudentRecord s){
+        if(marks>=33) return true;
+        else return false;
+    }
+    String getClassification(StudentRecord s){
+        if(marks<=100 && marks>90) return "Outstanding";
+        if(marks<=90 && marks>70) return "Excellent";
+        if(marks<=70 && marks>40) return "Passed";
+        else return "Fail";
+
+    }
+}
