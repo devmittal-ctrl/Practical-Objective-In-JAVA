@@ -1,8 +1,11 @@
 public class zolo_lab_2 {
-    public static use(){
+    public void use(){
         // task 1 : student record 
-        StudentRecord s1=new StudentRecord(12,"koi nahi","25csu000");
+        StudentRecord s1=new StudentRecord(-12,"koi nahi","25csu000");
         System.out.println(s1.getClassification(s1));
+        s1.getmarks();
+        s1.getname();
+        System.out.println(s1.toString());
 
     }
 }
@@ -20,29 +23,37 @@ class StudentRecord{
         this.marks=marks;
         this.name=name;
         this.studentId=studentId;
-        System.out.println("marks: "+marks+" | name : "+name+" | student id is : "+studentId);
+        if(marks<=0) System.err.println("enter a valid marks");
+        else System.out.println("marks: "+marks+" | name : "+name+" | student id is : "+studentId);
+
     }
-    void getname(String name){
-        this.name=name;
+    String getname(){
+        return name;
     }
-    void getmarks(int marks){
-        this.marks=marks;
+    int getmarks(){
+        if(marks>=0 || marks<=100) return marks;
+        else return 0;
     }
-    void getstudentID(String studentID){
-        this.studentId=studentID;
+    String getstudentID(){
+        return studentId;
     }
     boolean ispassed(StudentRecord s){
         if(marks>=33) return true;
+        if(marks<=0) return false;
         else return false;
     }
     String getClassification(StudentRecord s){
         if(marks<=100 && marks>90) return "Outstanding";
-        if(marks<=90 && marks>70) return "Excellent";
-        if(marks<=70 && marks>40) return "Passed";
+        else if(marks<=90 && marks>70) return "Excellent";
+        else if(marks<=70 && marks>40) return "Passed";
+        else if(marks<=0) return "Nope";
         else return "Fail";
 
+
     }
-@ Override
-String toString(){
-return "StudentRecord[marks are, + marks]";
+    @Override
+    public String toString(){
+        if(marks<=0) return "Can't Display";
+        else return "StudentRecord{Details of the student is : "+marks+"|"+name+"|"+studentId+"}";
+    }
 }
