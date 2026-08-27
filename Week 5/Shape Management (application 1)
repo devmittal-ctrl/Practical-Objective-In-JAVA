@@ -1,1 +1,143 @@
 // task 1 
+import java.util.*;
+public class zolo_lab{
+    public void use(){
+        // System.out.println("hello");
+        // shape management 
+        Shape[] s={
+            // abstract class canf
+            new rectangle(10, 5),
+            new circle(7),
+            new triangle(6, 8, 10),
+            new rectangle(4, 3),
+            new circle(5)
+        };
+        for (Shape sj : s) {
+            System.out.println(sj);
+            System.out.println("Area: "+sj.area());
+            System.out.println("Perimeter: "+sj.perimeter());
+            System.out.println("\n");
+        }
+        // application featire : 
+        double Total_perimeter=0;
+        double Total_area=0;
+        for(Shape sj:s){
+            Total_perimeter +=sj.perimeter();
+            Total_area+=sj.area();
+        }
+        System.out.println("total perimeter is : "+Total_perimeter);
+        System.out.println("total area average is : "+Total_area/5);
+    }
+}
+abstract class Shape{
+    private double length;
+    abstract double area();
+    abstract double perimeter();
+    Shape(double length){
+        if(length<=0){
+            System.out.println("enter a valid syntax");
+            return;
+        }
+        else this.length=length;
+    }
+    public double get_length(){
+        return length;
+    }
+    public String toString(){
+        return "length dimension id : "+length;
+    }
+
+}
+class rectangle extends Shape{
+    private double width;
+    rectangle(double length,double width){
+        super(length);
+        if(width<=0){
+            System.out.println("enter a valid syntax");
+            return;
+        }
+        this.width=width;
+    }
+    void name_class(){
+        System.out.println("Rectangle class is being used ");
+    }
+    @Override
+    double area(){
+        return get_length()*width;
+    }
+    @Override
+    double perimeter(){
+        return (2*(width+get_length()));
+    }
+    @Override
+    public String toString(){
+        return "the perimter of rectangle is : "+perimeter()+"\nthe area of rectangle is : "+area();
+    }
+}
+class circle extends Shape{
+    void fun(){
+        System.out.println("Circle class is being used ");
+    }
+    circle(double length){
+        super(length);
+    }
+    @Override
+    double area(){
+        return (3.14*get_length()*get_length());
+    }
+    @Override
+    double perimeter(){
+        return (6.28*get_length());
+    }
+    @Override
+    public String toString(){
+        return "the circunfernce of circle  is : "+perimeter()+"\nthe area of circle is : "+area();
+    }
+}
+class triangle extends Shape{
+    private double heigth;
+    private double heigth1;
+    triangle(double heigth,double length,double heigth1){
+        super(length);
+        if(heigth<=0){
+            System.err.println("enter a valid syntax");
+            return;
+        }
+        this.heigth=heigth;
+        this.heigth1=heigth1;
+    }
+    @Override
+    double area(){
+        return ((get_length()*heigth)/2);
+    }
+    @Override
+    double perimeter(){
+        return (heigth1+heigth+get_length());
+    }
+    @Override
+    public String toString(){
+        return "the perimeter of triangle  is : "+perimeter()+"\nthe area of triangle is : "+area();
+    }
+}
+// applicatiion 4 add a fouth shape type : 
+class square extends Shape{
+    square(double length){
+        super(length);
+    }
+    @Override
+    double area(){
+        return (get_length()*get_length());
+    }
+    @Override
+    double perimeter(){
+        return (4*get_length());
+    }
+    @Override
+    public String toString(){
+        return "the perimeter of square is : "+perimeter()+"\nthe area of square is : "+area();
+    }
+
+}
+
+
+
