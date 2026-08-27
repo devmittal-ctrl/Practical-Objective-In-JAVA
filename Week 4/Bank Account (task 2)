@@ -1,0 +1,51 @@
+public class zolo_lab{
+    public static void main(String[]args){
+        // System.out.println("hello");
+        BankAccount ba=new BankAccount("absdf","vsdjfbgw",3243);
+        System.out.println(ba.getBalance());
+        ba.deposit(34656);
+        System.out.println(ba.getBalance());
+    }
+}
+class BankAccount{
+    private String AccountNumber;
+    private String Ownername;
+    private double balance;
+    BankAccount(){
+        AccountNumber="hello@1234";
+        Ownername="abc";
+        balance=0;
+    }
+    public double getBalance(){
+        return balance;
+    }
+    public String getAccountnumnerf(){
+        return AccountNumber;
+    }
+    public String getownernamef(){
+        return Ownername;
+    }
+    BankAccount(String AccountNumber,String Ownername,double balance){
+        if(balance>0 && balance>=5000){
+            System.out.println("yes you can open a account");
+            System.out.println("account number : "+(this.AccountNumber=AccountNumber)+"\n"+"owner name : "+(this.Ownername=Ownername));
+            System.out.println("balance : "+(this.balance=balance));
+        }
+    }
+    Boolean deposit(double amount){
+        if(amount>0){
+            balance+=amount;
+        System.out.println("the amount of "+amount+" is successfully added to your account number ");
+        return true;}
+        return false;        
+    }
+    Boolean withdraw(double amount){
+        if(balance>=amount && amount>0){
+            balance-=amount;
+            System.out.println("the amount of "+amount+" is successfully debited to your account number ");
+            return true;
+        }
+        return false;
+    }
+
+}
