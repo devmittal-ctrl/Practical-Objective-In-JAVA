@@ -1,0 +1,47 @@
+import java.util.*;
+public class zolo_lab{
+    public void use(){
+        // System.out.println("hello");
+        Product p1 = new Product(123,223,"gfjkr",45.7);      
+
+    }
+}
+class Product{
+    private int code;
+    private String name;
+    private double unit_price;
+    private int qunatity;
+    private static int product_counter;
+    Product(int code,String name,double unit_price){
+        if(unit_price>=0) return;
+        this.qunatity=0;
+        this.code=code;
+        this.name=name;
+        this.unit_price=unit_price;
+        product_counter++;
+    }
+    Product(int code,int qunatity,String name,double unit_price){
+        if(unit_price>=0) return;
+        if(qunatity<0) return;
+        this.qunatity=0;
+        this.code=code;
+        this.name=name;
+        this.unit_price=unit_price;
+        product_counter++;
+    }
+    void restock(int amount){
+        if(amount>0) qunatity+=amount;
+        else return;
+    }
+    void sell(int amount){
+        if(qunatity>=amount) qunatity-=amount;
+        else return;
+    }
+    static int getProductCount(){
+        return product_counter;
+    }
+    double inventoryvalue(){
+        return qunatity*unit_price;
+    }
+}
+
