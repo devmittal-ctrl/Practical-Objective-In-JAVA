@@ -1,0 +1,65 @@
+import java.util.*;
+public class zolo_lab {
+    public static void main(String[] args) {
+        BookLoan blo = new BookLoan("a", "b", "c");
+        System.out.println("Tell which book you want to issue");
+        Scanner scf = new Scanner(System.in);
+        String fo = scf.next();
+        blo.borrowBook();
+        System.out.println("Available: " + blo.isAvailable());
+        blo.returnBook();
+        System.out.println("Available: " + blo.isAvailable());
+    }
+}
+
+class BookLoan {
+    private String book_title;
+    private String book_author;
+    private String book_code;
+    private boolean loaned = false;
+    BookLoan() {
+        book_title = "abc";
+        book_author = "kyu batau";
+        book_code = "1#2@";
+    }
+    BookLoan(String book_title, String book_author, String book_code) {
+        if (book_title == null ||book_author == null || book_code == null) {
+            System.out.println("Invalid book details");
+            return;
+        }
+        this.book_title = book_title;
+        this.book_author = book_author;
+        this.book_code = book_code;
+    }
+
+    String getTitle() {
+        return book_title;
+    }
+    String getAuthor() {
+        return book_author;
+    }
+    String getBookCode() {
+        return book_code;
+    }
+    boolean borrowBook() {
+        if (!loaned) {
+            loaned = true;
+            System.out.println("Yes, the book is available to borrow");
+            return true;
+        }
+        System.out.println("No, the book is already borrowed");
+        return false;
+    }
+    boolean returnBook() {
+        if (loaned) {
+            loaned = false;
+            System.out.println("Book returned successfully");
+            return true;
+        }
+        System.out.println("Book was not borrowed");
+        return false;
+    }
+    boolean isAvailable() {
+        return !loaned;
+    }
+}
