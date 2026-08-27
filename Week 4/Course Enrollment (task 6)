@@ -1,0 +1,57 @@
+import java.util.*;
+public class zolo_lab{
+    public void use(){
+        // System.out.println("hello");
+        Course c=new Course("abc","hello",50);
+        c.enroll();
+        c.enroll();
+        c.enroll();
+        c.enroll();
+        System.out.println(c.isfull());
+        System.out.println(c.avaliableseat());
+        c.withdraw();
+        System.out.println(c.avaliableseat());
+    }
+}
+class Course{
+    private String curse_code;
+    private String title;
+    private int capacity;
+    private static int enrolled_count;
+    Course(String curse_code,String title,int capacity){
+        if(capacity<0) return;
+        if(enrolled_count==0) System.out.println("nope is enrolled");
+        this.capacity=capacity;
+        this.curse_code=curse_code;
+        this.title=title;     
+    }
+    Boolean enroll(){
+        if(enrolled_count<capacity){
+            System.out.println("yes the seat is conformed! pay the fees 😎");
+            enrolled_count++;
+            return true;
+        }
+        else{
+            System.err.println("nope seat is full ");
+            return false;
+        }
+    }
+    Boolean withdraw(){
+        System.out.println("you are withdrawing your seat ");
+        enrolled_count--;
+        return true;
+    }
+    Boolean isfull(){
+        if(capacity==enrolled_count) return true;
+        else return false;
+    }
+    int getEnrolledcount(){
+        return enrolled_count;
+    }
+    int avaliableseat(){
+        return capacity-enrolled_count;
+    }
+    
+
+}
+
