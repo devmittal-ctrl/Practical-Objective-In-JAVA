@@ -1,0 +1,58 @@
+public class zolo_lab {
+    public void use() {
+        ScoreBox sb1 = new ScoreBox(10);
+        ScoreBox sb2 = sb1;
+        // Separate ScoreBox object
+        ScoreBox sb3 = new ScoreBox(20);
+        System.out.println("sb1 == sb2: " + (sb1 == sb2));
+        System.out.println("sb1 == sb3: " + (sb1 == sb3));
+        addBonus(sb2, 5);
+        System.out.println("box1 score after mutation through box2: "
+                + sb1.getScore());
+        System.out.println("box2 score: " + sb2.getScore());
+        ScoreBox box4 = createScoreBox(100);
+        System.out.println("box4 score: " + box4.getScore());
+        // Reference comp[
+        System.out.println("box1 == box2: " + (sb1 == sb2));
+        System.out.println("box1 == box3: " + (sb1 == sb3));
+        System.out.println("box1 == box4: " + (sb1 == box4));
+    }
+    static void addBonus(ScoreBox box, int bonus) {
+
+        if (bonus < 0) {
+            System.out.println("Bonus cannot be negative");
+            return;
+        }
+        box.setScore(box.getScore() + bonus);
+    }
+    static void replaceLocally(ScoreBox box) {
+
+        // This only changes the local parameter.
+        // It does not replace the caller's reference.
+        box = new ScoreBox(999);
+        System.out.println("Inside replaceLocally: " + box.getScore());
+    }
+
+    static ScoreBox createScoreBox(int score) {
+
+        return new ScoreBox(score);
+    }
+}
+class ScoreBox {
+    private int score;
+    ScoreBox(int score) {
+        if (score < 0) {
+            System.err.println("score can not be less than zero");
+        }
+        this.score = score;
+    }
+    int getScore() {
+        return score;
+    }
+    void setScore(int score) {
+        if (score < 0) {
+            System.err.println("score can not be less than zero");
+        }
+        this.score = score;
+    }
+}
