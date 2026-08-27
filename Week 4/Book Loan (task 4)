@@ -1,6 +1,6 @@
 import java.util.*;
 public class zolo_lab {
-    public static void main(String[] args) {
+    public void use() {
         BookLoan blo = new BookLoan("a", "b", "c");
         System.out.println("Tell which book you want to issue");
         Scanner scf = new Scanner(System.in);
