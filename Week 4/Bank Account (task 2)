@@ -1,5 +1,5 @@
 public class zolo_lab{
-    public static void main(String[]args){
+    public void use(){
         // System.out.println("hello");
         BankAccount ba=new BankAccount("absdf","vsdjfbgw",3243);
         System.out.println(ba.getBalance());
