@@ -1,0 +1,71 @@
+import java.util.*;
+public class zolo_lab{
+    public void use(){
+        if (args.length < 3) {
+            System.out.println("Please provide name, age and height.");
+            return;
+        }
+        String name = args[0];
+        String ageText = args[1];
+        String heightText = args[2];
+         try {
+            int age = Integer.parseInt(ageText);
+            double heightMetres = Double.parseDouble(heightText);
+            Profile p2 = new Profile(name, age, heightMetres);
+            System.out.println("Name: " + p2.getname());
+            System.out.println("Age: " + p2.getage());
+            System.out.println("Heightmeter : " + p2.getheightMeter());
+            String ageString = Integer.toString(p2.getage());
+            String heightString = Double.toString(p2.getheightMeter());
+            String nameString = String.valueOf(p2.getname());
+            System.out.println("Age as String: " + ageString);
+            System.out.println("Height as String: " + heightString);
+            System.out.println("Name as String: " + nameString);
+
+        } catch (NumberFormatException e) {
+            System.out.println("Age and height must be valid numbers.");}
+
+        Profile p1=new Profile(null, 0, 0);
+        /* Build a Profile class and a public TextProfile driver.
+
+Profile fields:
+
+- String name
+- int age
+- double heightMetres
+
+Requirements:
+
+- receive name, age text, and height text through command-line arguments
+- convert age with Integer.parseInt()
+- convert height with Double.parseDouble()
+- create a Profile object through a parameterized constructor
+- validate non-blank name, non-negative age, and positive height
+- provide getters 
+- demonstrate String.valueOf(), Integer.toString(), or Double.toString() for
+  at least one reverse conversion*/
+    }
+    
+}
+class Profile{
+    String name;
+    int age;
+    double heightMeter;
+    Profile(String name, int age, double heightMeter){
+        if( name==null || name.trim().isEmpty()){ System.out.println("name canot be empty "); return;}
+        else if(age<=0){ System.out.println("age canot be negative "); return;}
+        else if(heightMeter<=0){ System.out.println("heigth canot be negtive"); return;}
+        this.age=age;
+        this.heightMeter=heightMeter;
+        this.name=name;
+    }
+    String getname(){
+        return name;
+    }
+    double getheightMeter(){
+        return heightMeter;
+    }
+    int getage(){
+        return age;
+    }
+}
