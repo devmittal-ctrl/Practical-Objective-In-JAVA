@@ -1,1 +1,38 @@
 // question 9 ::: 
+public class zolo_lab{
+    public void use(){
+        // System.out.println("hello");
+        // now test the functionn 
+    }
+    // defination of all static metods  :
+    static String reverse(String text){
+        if(text==null || text.trim().isEmpty()) return "enter a valid syntax";
+        StringBuilder sb=new StringBuilder(text);
+        sb.reverse();
+        return sb.toString();
+    }
+    static String repeat(String text, int count){
+        if(text==null || text.trim().isEmpty()) return "enter a valid synatx";
+        return "";
+    }
+    static String joinWords(String[] words, String separator){
+        if(text==null || text.trim().isEmpty()) return "enter a valid synatx";
+        StringBuffer sbb=new StringBuffer(separator);
+        for(int i=0;i<words.length;i++){
+            if(words[i]!=null) sbb.append(words[i]);
+        }
+        return sbb.toString();
+    }
+    static String removeCharacterAt(String text, int index){
+        if(text==null || text.trim().isEmpty()) return "enter a valid synatx";
+        StringBuffer sbb=new StringBuffer(text);
+        sbb.deleteCharAt(index);
+        return sbb.toString();
+    }
+    static String replaceCharacterAt(String text, int index, char replacement){
+        if(text==null || text.trim().isEmpty()) return "enter a valid synatx";
+        StringBuffer sbb=new StringBuffer(text);
+        sbb.setCharAt(index,replacement);
+        return sbb.toString();
+    }
+}
