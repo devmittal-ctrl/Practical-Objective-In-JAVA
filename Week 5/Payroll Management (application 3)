@@ -1,1 +1,153 @@
 // task 3
+import java.util.*;
+public class zolo_lab{
+    public static void main(String[]args){
+        // system.out.println("hello new worksarea")
+ }
+}
+interface payable{
+    int payment_amount();
+}
+abstract class employee implements payable{
+    protected String employee_id;
+    protected String employee_name;
+    employee(String employee_id,String employee_name){
+        if(employee_name.trim()==null | employee_id.trim()==null){
+            System.err.println("enter a valid syntax");
+            return;
+        }
+        this.employee_id=employee_id;
+        this.employee_name=employee_name;
+    }
+    public String get_employee_id(){
+        return employee_id;
+    }
+    public String get_employee_name(){
+        return employee_name;
+    }
+    @Override
+    public String toString(){
+        return "Employee name : "+employee_name+"\nEmployee id : "+employee_id;
+    }
+}
+class salried_employee extends employee{
+    private int salary;
+    salried_employee(String employee_id, String employee_name,int salary){
+        super(employee_id, employee_name);
+        if(salary<=0){
+            System.err.println("nope this is not possible");
+            return;
+        }
+        this.salary=salary;
+    }
+    @Override
+    public int payment_amount(){
+        return salary;
+    }
+    @Override
+    public String toString(){
+        return "Details of the saalried employyes : \nEmployee salary :"+salary;
+    }
+
+}
+class hourly_employee extends employee{
+    private int salary1;
+    private int hours_works;
+    hourly_employee(String employee_name,String employee_id,int salary1,int hours_works){
+        super(employee_id, employee_name);
+        if(salary1<=0 | hours_works<=0){
+            System.out.println("nope this is not valid entry");
+        }
+        this.salary1=salary1;
+        this.hours_works=hours_works;
+    }
+    public int get_hours_worked(){
+        return hours_works;
+    }
+    @Override
+    public int payment_amount(){
+        return salary1;
+    }
+    @Override
+    public String toString(){
+        return "details of the hourly employyee : \nHours Worked : "+hours_works+"\nSalary : "+salary1;
+    }
+}
+class contract_employee extends employee{
+    private int salary2;
+    private int contract_tenure;
+    contract_employee(String employee_id,String employee_name,int salary2,int contract_tenure){
+        super(employee_id, employee_name);
+        if(salary2<=0 | contract_tenure<=0){
+            System.out.println("nope invalid entry");
+            return;
+        }
+        this.contract_tenure=contract_tenure;
+        this.salary2=salary2;
+    }
+    public int get_contract_tenure(){
+        return contract_tenure;
+    }
+    @Override
+    public int payment_amount(){
+        return salary2;
+    }
+    @Override
+    public String toString(){
+        return "details of the contract employyee : \nContract Tenure : "+contract_tenure+"\nSalary : "+salary2;
+    }
+}
+class invoice implements payable{
+    private String invoice_id;
+    private int amount;
+    invoice(String invoice_id,int amount){
+        this.invoice_id=invoice_id;
+        this.amount=amount;
+    }
+    public String get_invoiceId(){
+        return invoice_id;
+    }
+    @Override
+    public int payment_amount(){
+        return amount;
+    }
+    @Override
+    public String toString(){
+        return "details of the invoice are : "+invoice_id+" "+amount;
+    }
+}
+class PayrollProcessor {
+    private Payable[] payables;
+    private int size;
+    public PayrollProcessor(int capacity) {
+        payables = new Payable[capacity];
+    }
+    public void addPayable(Payable payable) {
+        if (size < payables.length) {
+            payables[size] = payable;
+            size++;
+            System.out.println("Payment object added successfully.");
+        } else {
+            System.out.println("Payroll processor is full.");
+        }
+    }
+    public double calculateTotalPayment() {
+        double total = 0;
+        for (int i = 0; i < size; i++) {
+            total += payables[i].payment_amount();
+        }
+        return total;
+    }
+    public Payable Largest_Payment() {
+        if (size == 0) {
+            return;
+        }
+        Payable largest = payables[0];
+        for (int i = 1; i < size; i++) {
+            if (payables[i].calculatePayment()
+                    > largest.calculatePayment()) {
+                largest = payables[i];
+            }
+        }
+        return largest;
+    }
