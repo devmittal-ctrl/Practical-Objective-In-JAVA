@@ -1,0 +1,57 @@
+package college.model;
+
+import college.util.TextUtils;
+
+class Person {
+
+    public void describeRole() {
+        System.out.println("I am a person.");
+    }
+}
+
+public class Student extends Person {
+
+    private String name;
+    private int mark;
+
+    public Student(String name) {
+        this.name = TextUtils.normalizeName(name);
+    }
+
+    public void setMark(int mark) throws InvalidStudentDataException {
+
+        if (mark < 0 || mark > 100) {
+            throw new InvalidStudentDataException(
+                    "Mark must be between 0 and 100"
+            );
+        }
+
+        this.mark = mark;
+    }
+
+    public void submitAssignment() {
+        System.out.println(name + " submitted the assignment.");
+    }
+
+    @Override
+    public void describeRole() {
+        System.out.println(name + " is a student.");
+    }
+
+    @Override
+    public String toString() {
+        return "Student{name='" + name + "', mark=" + mark + "}";
+    }
+}
+
+class Instructor extends Person {
+
+    @Override
+    public void describeRole() {
+        System.out.println("I am an instructor.");
+    }
+
+    public void conductClass() {
+        System.out.println("Instructor is conducting the class.");
+    }
+}
