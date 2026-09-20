@@ -1,0 +1,97 @@
+package college.app;
+
+import college.model.Student;
+import college.model.InvalidStudentDataException;
+import college.util.TextUtils;
+import college.model.Person;
+import college.model.Instructor;
+public class Week7Lab {
+
+    public static void main(String[] args) {
+
+        System.out.println("----- TASK 1 -----");
+
+        String name1 = TextUtils.normalizeName("  asha   nair ");
+        String name2 = TextUtils.normalizeName("DAVID");
+
+        System.out.println(name1);
+        System.out.println(name2);
+
+        System.out.println("Successful normalizations: "
+                + TextUtils.getCount());
+
+
+        System.out.println("\n----- TASK 2 -----");
+
+        Person[] people = {
+                new Student("Ravi Kumar"),
+                new Instructor(),
+                new Student("Neha Sharma")
+        };
+
+        for (Person p : people) {
+
+            p.describeRole();
+
+            if (p instanceof Student s) {
+                s.submitAssignment();
+            }
+
+            if (p instanceof Instructor i) {
+                i.conductClass();
+            }
+        }
+
+        // This will not compile because Person does not have submitAssignment().
+        // people[0].submitAssignment();
+
+        /*
+         * If an Instructor object is cast to Student, it will compile
+         * because both are related through Person, but at runtime it
+         * will cause ClassCastException.
+         *
+         * Student s = (Student) people[1];
+         */
+
+
+        System.out.println("\n----- TASK 3 -----");
+
+        testMark("85");
+        testMark("hello");
+        testMark("120");
+
+
+        System.out.println("\n----- FINAL CHECK -----");
+
+        System.out.println("Normalization count: "
+                + TextUtils.getCount());
+    }
+
+    public static void testMark(String text) {
+
+        System.out.println("\nTrying mark: " + text);
+
+        try {
+
+            int mark = Integer.parseInt(text);
+
+            Student s = new Student("Asha Nair");
+            s.setMark(mark);
+
+            System.out.println("Valid student: " + s);
+
+        } catch (NumberFormatException e) {
+
+            System.out.println("Invalid input: mark must be a number.");
+
+        } catch (InvalidStudentDataException e) {
+
+            System.out.println("Invalid student data: "
+                    + e.getMessage());
+
+        } finally {
+
+            System.out.println("Validation attempt complete");
+        }
+    }
+}
