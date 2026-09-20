@@ -1,0 +1,64 @@
+package college.util;
+
+public class TextUtils {
+
+    private static int count = 0;
+
+    private TextUtils() {
+    }
+
+    public static String normalizeName(String name) {
+
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be blank");
+        }
+
+        name = name.trim();
+
+        StringBuilder result = new StringBuilder();
+        boolean space = false;
+
+        for (int i = 0; i < name.length(); i++) {
+
+            char ch = name.charAt(i);
+
+            if (ch == ' ') {
+                if (!space) {
+                    result.append(' ');
+                    space = true;
+                }
+            } else {
+                result.append(ch);
+                space = false;
+            }
+        }
+
+        String text = result.toString().toLowerCase();
+
+        StringBuilder finalName = new StringBuilder();
+        boolean first = true;
+
+        for (int i = 0; i < text.length(); i++) {
+
+            char ch = text.charAt(i);
+
+            if (first && ch != ' ') {
+                finalName.append(Character.toUpperCase(ch));
+                first = false;
+            } else {
+                finalName.append(ch);
+            }
+
+            if (ch == ' ') {
+                first = true;
+            }
+        }
+
+        count++;
+        return finalName.toString();
+    }
+
+    public static int getCount() {
+        return count;
+    }
+}
